@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:username, :email, :password_digest))
+    @user = User.new(params.require(:user).permit(:username, :email, :password))
     if @user.save
       flash[:notice] = "ユーザーを新規登録しました"
       redirect_to :users
