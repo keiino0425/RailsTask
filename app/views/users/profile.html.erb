@@ -34,7 +34,11 @@
                         <div class="row">
                             <div class="col-md-6 offset-md-3">
                                 <div class="icon-box">
-                                    <img alt="アイコン画像" class="icon-image host-icon" src="">
+                                    <% if @user.userimage? %>
+                                        <%= image_tag "#{@user.userimage}", alt: 'アイコン画像', class: "icon-image host-icon" %>
+                                    <% else %>
+                                        <%= image_tag "default.jpeg", alt: 'アイコン画像', class: "icon-image host-icon" %>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +49,7 @@
                             <label class="col-md-3 required-a" for="image">
                             アイコン画像
                             </label>
-                            <%= f.file_field :userimage, placeholder: "アイコン画像をアップロード", class: "mb-4 col-md-9" %> 
+                            <%= f.file_field :userimage, accept: 'image/jpeg,image/gif,image/png', placeholder: "アイコン画像をアップロード", class: "mb-4 col-md-9" %> 
                         </div>
                     </div>
 

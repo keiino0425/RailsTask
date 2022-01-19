@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+#画像アップロード
+gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
