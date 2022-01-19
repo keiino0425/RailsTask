@@ -1,0 +1,79 @@
+<div class="container-fiuld user">
+    <div class="row">
+        <div class="col-lg-2 user-nav user-nav-pc d-lg-block d-none">
+            <ul>
+                <li class="">
+                    <a href="">アカウント</a>
+                </li>
+                <li class="">
+                    <a href="">プロフィール</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 user-nav user-nav-mobile d-lg-none">
+            <ul>
+                <li class="">
+                    <a href="">アカウント</a>
+                </li>
+                <li class="">
+                    <a href="">プロフィール</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-10 user-view">
+            <div class="user-view-box">
+                <div class="update-content">
+                    <div class="row">
+                        <h5>プロフィール</h5>
+                    </div>
+                </div>
+                <%= form_with model: @user do |f| %>
+                    <%= render "shared/error", obj: @user %>
+
+                    <div class="update-content">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="icon-box">
+                                    <img alt="アイコン画像" class="icon-image host-icon" src="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="image">
+                            アイコン画像
+                            </label>
+                            <%= f.file_field :userimage, placeholder: "アイコン画像をアップロード", class: "mb-4 col-md-9" %> 
+                        </div>
+                    </div>
+
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="name">
+                            名前
+                            </label>
+                            <%= f.text_field :username, placeholder: "名前を入力", class: "form-control mb-4 col-md-9" %>
+                        </div>
+                    </div>
+
+                    <div class="update-content">
+                        <div class="row">
+                            <label class="col-md-3 required-a" for="introduction">
+                            自己紹介
+                            </label>
+                            <%= f.text_field :userinfo, placeholder: "自己紹介を入力", class: "form-control mb-4 col-md-9" %>
+                        </div>
+                    </div>
+
+                    <div class="update-content">
+                        <div class="row">
+                            <%= f.submit "更新", class: "col-md-2 btn btn-primary mx-3" %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

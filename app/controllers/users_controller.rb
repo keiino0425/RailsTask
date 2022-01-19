@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:username, :email, :password))
     if @user.save
       flash[:notice] = "ユーザーを新規登録しました"
-      redirect_to :users
+      redirect_to "/users/profile/#{@user.id}"
     else
       render "new"
     end
@@ -20,9 +20,22 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def profile
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(params.require(:user).permit(:username, :email, :password, :userimage, :userinfo))
+      flash[:notice] = "ユーザー情報を更新しました"
+      redirect_to "/users/profile/#{@user.id}"
+    else
+      flash[:notice] = "エラー"
+      render "/users/profile/#{@user.id}"
+    end
   end
 
   def destroy
