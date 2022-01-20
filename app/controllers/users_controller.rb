@@ -27,6 +27,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def account
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update(params.require(:user).permit(:username, :email, :password, :userimage, :userinfo))
