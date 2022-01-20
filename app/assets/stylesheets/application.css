@@ -260,6 +260,10 @@ div.field, div.actions {
     color: #4a90e2;
 }
 
+.user .user-nav-pc a:hover {
+    color: #4a90e2;
+}
+
 .user .user-nav-mobile {
     height: auto;
 }
@@ -279,6 +283,10 @@ div.field, div.actions {
 }
 
 .user .user-nav-mobile .active a {
+    color: #4a90e2;
+}
+
+.user .user-nav-movile a:hover {
     color: #4a90e2;
 }
 
